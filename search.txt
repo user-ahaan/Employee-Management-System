@@ -1,0 +1,53 @@
+style:
+.highlight {
+            background-color: yellow;
+        }
+
+<script>
+        function search() {
+            // Get the search input value
+            var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+            // Remove existing highlights
+            var highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(function (highlight) {
+                var parent = highlight.parentNode;
+                parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+                parent.normalize(); // Merge adjacent text nodes
+            });
+
+            // Function to highlight occurrences within a text node
+            function highlightText(textNode) {
+                var content = textNode.nodeValue;
+                var highlightedContent = content.replace(new RegExp(searchTerm, 'gi'), match => `<span class="highlight">${match}</span>`);
+                var wrapper = document.createElement('span');
+                wrapper.innerHTML = highlightedContent;
+                textNode.parentNode.replaceChild(wrapper, textNode);
+            }
+
+            // Function to traverse and highlight text nodes
+            function traverseAndHighlight(node) {
+                if (node.nodeType === 3) {  // Text node
+                    highlightText(node);
+                } else if (node.nodeType === 1 && node.childNodes && !/(script|style)/i.test(node.tagName)) {  // Element with child nodes (excluding script and style)
+                    for (var i = 0; i < node.childNodes.length; i++) {
+                        traverseAndHighlight(node.childNodes[i]);
+                    }
+                }
+            }
+
+            // Start traversing and highlighting from the body
+            traverseAndHighlight(document.body);
+
+            // Display an alert indicating the number of matches
+            var matches = document.getElementsByClassName("highlight").length;
+            alert(matches > 0 ? matches + " matches found!" : "Search term not found.");
+        }
+    </script>
+
+    header:
+
+    <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="search()">Search</button>
+            </div>

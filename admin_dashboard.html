@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            height: 60px;
+        }
+
+        a {
+            color: #333;
+        }
+
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .image-container {
+            margin: 2em;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .info-container {
+            text-align: center;
+            margin: 2em;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="image-container">
+            <img src="images/logo.jpg" alt="Logo">
+        </div>
+    
+        <nav>
+            <a href="admin_dashboard.html">Home</a>
+            <a href="add_employee.html">Add Employee</a>
+            <a href="edit.php">Update Employee</a>
+            <a href="delete.php">Delete Employee</a>
+            <a href="show-employee.php">View Employee</a>
+            <a href="assign_project.html">Assign Project</a>
+            <a href="show-project.php">Project Status</a>
+            <a href="a_leave.php">Manage Leaves</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+
+    <div class="info-container">
+        <h1>Welcome, Admin!</h1>
+        <br>
+        <h2>Admin dashboard can be used to do the following tasks:</h2>
+        <h3><a href="add_employee.html" style="text-decoration: none;">1.Adding new employee</a></h3>
+        <h3><a href="edit.php" style="text-decoration: none;">2.Updating existing employee</a></h3>
+        <h3><a href="delete.php" style="text-decoration: none;">3.Deleting existing employees</a></h3>
+        <h3><a href="show-employee.php" style="text-decoration: none;">4.Viewing existing employees</a></h3>
+        <h3><a href="assign_project.html" style="text-decoration: none;">5.Assigning project to employees</a></h3>
+        <h3><a href="show-project.php" style="text-decoration: none;">6.Viewing assigned project</a></h3>
+        <h3><a href="a_leave.php" style="text-decoration: none;">7.Managing Leaves</a></h3>
+        <h3><a href="index.html" style="text-decoration: none;">8.Logging out</a></h3>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Employee Management System</p>
+    </footer>
+
+</body>
+</html>
